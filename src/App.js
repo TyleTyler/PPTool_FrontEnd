@@ -1,19 +1,17 @@
 import './App.css';
 import { useState } from 'react';
+import {NewPhone} from './newPhoneComp'
+import { usePhoneListContext } from './usePhoneContext';
+
 
 function App() {
-  const [addPhoneState, setAddPhoneState] = useState(false)
-
-
-
+  const {addPhoneState, setAddPhoneState} = usePhoneListContext()
   return (
     <div className="App">
       <div className='logo'/>
-      {addPhoneState && <form className='addPhoneState'> 
-          <input type='text'/>
-
-      
-      </form> }
+      {addPhoneState && <>
+        <NewPhone/>  
+      </> }
       <section className='curPhones'>
       <div className='title'> Current Phones to Add </div>
       <div className='butSection'>
